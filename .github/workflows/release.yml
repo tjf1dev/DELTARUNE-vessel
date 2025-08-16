@@ -40,7 +40,7 @@ jobs:
 
       - name: build exe
         run: |
-          cat love-win/love.exe DELTARUNE-vessel.love > DELTARUNE-vessel.exe
+          cat love-win/love-11.4-win32/love.exe DELTARUNE-vessel.love > DELTARUNE-vessel.exe
 
       - name: create pre-release
         id: create_release

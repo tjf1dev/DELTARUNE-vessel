@@ -5,6 +5,10 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "release tag"
+        required: true
 
 jobs:
   build:
@@ -47,7 +51,7 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: ${{ github.ref_name || 'manual-release' }}
-          release_name: Release ${{ github.ref_name || 'manual-release' }}
+          release_name: ${{ github.ref_name || 'manual-release' }}
           body: |
             changes:
             ${{ env.RELEASE_BODY }}
@@ -63,6 +67,7 @@ jobs:
           asset_path: ./DELTARUNE-vessel.love
           asset_name: DELTARUNE-vessel.love
           asset_content_type: application/zip
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: upload .exe
         uses: actions/upload-release-asset@v1
@@ -71,3 +76,4 @@ jobs:
           asset_path: ./DELTARUNE-vessel.exe
           asset_name: DELTARUNE-vessel.exe
           asset_content_type: application/octet-stream
+          token: ${{ secrets.GITHUB_TOKEN }}

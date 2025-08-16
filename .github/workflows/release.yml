@@ -23,7 +23,20 @@ jobs:
 
       - name: determine release tag
         id: release_tag
-        run: echo "RELEASE_TAG=${{ github.event.inputs.tag }}" >> $GITHUB_ENV
+        run: |
+          if [ -n "${{ github.event.inputs.tag }}" ]; then
+            echo "RELEASE_TAG=${{ github.event.inputs.tag }}" >> $GITHUB_ENV
+          else
+            echo "RELEASE_TAG=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+          fi
+
+      - name: determine release name
+        run: |
+          if [ -n "${{ github.event.inputs.name }}" ]; then
+            echo "RELEASE_NAME=${{ github.event.inputs.name }}" >> $GITHUB_ENV
+          else
+            echo "RELEASE_NAME=${{ env.RELEASE_TAG }}" >> $GITHUB_ENV
+          fi
 
       - name: install dependencies
         run: sudo apt-get update && sudo apt-get install -y zip wget unzip
@@ -54,31 +67,17 @@ jobs:
           cat love-win/love-11.4-win32/love.exe DELTARUNE-vessel.love > DELTARUNE-vessel.exe
 
       - name: create pre-release
-        id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.event.inputs.tag }}
-          release_name: release ${{ github.event.inputs.name || github.event.inputs.tag}}
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_NAME }}
           body: |
             changes:
             ${{ env.RELEASE_BODY }}
           draft: false
           prerelease: true
+          files: |
+            DELTARUNE-vessel.love
+            DELTARUNE-vessel.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: upload .love
-        uses: actions/upload-release-asset@v2
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./DELTARUNE-vessel.love
-          asset_name: DELTARUNE-vessel.love
-          asset_content_type: application/zip
-
-      - name: upload .exe
-        uses: actions/upload-release-asset@v2
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./DELTARUNE-vessel.exe
-          asset_name: DELTARUNE-vessel.exe
-          asset_content_type: application/octet-stream

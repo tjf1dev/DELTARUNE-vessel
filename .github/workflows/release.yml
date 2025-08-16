@@ -35,7 +35,7 @@ jobs:
 
       - name: download love for windows
         run: |
-          wget https://github.com/love2d/love/releases/download/11.4/love-11.4-win32.zip
+          curl -L -o love-11.4-win32.zip https://github.com/love2d/love/releases/download/11.4/love-11.4-win32.zip
           unzip love-11.4-win32.zip -d love-win
 
       - name: build exe

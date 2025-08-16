@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="13">
+ <editorsettings>
+  <export target="room_core_entrance.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="../tilesets/core.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="30" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,
+29,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,33,34,
+29,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,33,34,
+29,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,33,34,
+57,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,61,61,61,61,61,61,61,61,62,
+85,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,87,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+141,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,143,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="6" name="Tile Layer 2" width="30" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,200,201,0,0,0,0,0,0,0,200,201,0,0,0,0,0,0,200,201,0,0,0,0,0,0,0,
+0,0,0,0,228,229,0,0,0,0,0,0,0,228,229,0,0,0,0,0,0,228,229,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="5" name="objects">
+  <object id="6" name="interactable" x="840" y="280" width="80" height="40">
+   <properties>
+    <property name="text" value="* It's broken."/>
+   </properties>
+  </object>
+  <object id="7" name="interactable" x="520" y="280" width="80" height="40">
+   <properties>
+    <property name="text" value="* It's broken."/>
+   </properties>
+  </object>
+  <object id="8" name="interactable" x="160" y="280" width="80" height="40">
+   <properties>
+    <property name="text" value="* It's broken."/>
+   </properties>
+  </object>
+  <object id="9" name="transition" x="1200" y="320" width="40" height="120">
+   <properties>
+    <property name="map" value="room_core_bridge"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="11" name="script" x="120" y="320" width="40" height="120">
+   <properties>
+    <property name="cutscene" value="core.susie_entry"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#0000ff" id="2" name="collision" locked="1" tintcolor="#0000ff">
+  <object id="1" x="0" y="440" width="1200" height="40"/>
+  <object id="2" x="0" y="280" width="1200" height="40"/>
+ </objectgroup>
+ <objectgroup color="#5500ff" id="3" name="markers">
+  <object id="3" name="spawn" x="80" y="400">
+   <point/>
+  </object>
+  <object id="4" name="entry" x="40" y="400">
+   <point/>
+  </object>
+  <object id="10" name="exit" x="1160" y="400">
+   <point/>
+  </object>
+  <object id="12" name="poi_1" x="280" y="400">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

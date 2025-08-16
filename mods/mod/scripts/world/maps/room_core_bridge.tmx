@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="9">
+ <editorsettings>
+  <export target="room_core_bridge.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="../tilesets/core.tsx"/>
+ <imagelayer id="5" name="background" opacity="0.3" repeatx="1" repeaty="1">
+  <image source="../../../assets/sprites/tilesets/core-bgalt.png" width="411" height="228"/>
+ </imagelayer>
+ <layer id="4" name="Tile Layer 1" width="30" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+85,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,87,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+141,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,143,
+169,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,171
+</data>
+ </layer>
+ <objectgroup color="#0000ff" id="6" name="collision">
+  <object id="6" x="0" y="440" width="1200" height="40"/>
+  <object id="7" x="0" y="280" width="1200" height="40"/>
+ </objectgroup>
+ <objectgroup color="#aa00ff" id="2" name="objects">
+  <object id="1" name="transition" x="-40" y="320" width="40" height="120">
+   <properties>
+    <property name="map" value="room_core_entrance"/>
+    <property name="marker" value="exit"/>
+   </properties>
+  </object>
+  <object id="8" name="transition" x="1200" y="320" width="40" height="120">
+   <properties>
+    <property name="map" value="room_core_fight"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#5500ff" id="3" name="markers">
+  <object id="2" name="entry" x="40" y="400">
+   <point/>
+  </object>
+  <object id="3" name="spawn" x="80" y="400">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

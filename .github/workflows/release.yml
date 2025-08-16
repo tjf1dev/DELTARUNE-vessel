@@ -32,7 +32,7 @@ jobs:
         id: commits
         run: |
           if [ -n "${GITHUB_REF_NAME}" ]; then
-            RELEASE_BODY=$(git log --pretty=format:'- %s (%h)' ${GITHUB_REF}^..${GITHUB_REF} || echo "No commits found")
+            RELEASE_BODY=$(git log --pretty=format:'- %s (%h)' ${GITHUB_REF}^..${GITHUB_REF} || echo "no commits found")
           else
             RELEASE_BODY=$(git log -n 10 --pretty=format:'- %s (%h)')
           fi
@@ -68,21 +68,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: upload .love
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./DELTARUNE-vessel.love
           asset_name: DELTARUNE-vessel.love
           asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: upload .exe
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./DELTARUNE-vessel.exe
           asset_name: DELTARUNE-vessel.exe
           asset_content_type: application/octet-stream
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
